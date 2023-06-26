@@ -97,6 +97,7 @@ let project = Project(
             resources: "WidgetExtension/Resources/**",
             dependencies: [
                 .target(name: "StaticFramework"),
+                .target(name: "DynamicFramework"),
             ]
         ),
         Target(
@@ -118,6 +119,14 @@ let project = Project(
                 ],
             ]),
             sources: "AppIntentExtension/Sources/**"
+        ),
+        Target(
+            name: "DynamicFramework",
+            platform: .iOS,
+            product: .framework,
+            bundleId: "io.tuist.App.DynamicFramework",
+            infoPlist: .default,
+            sources: "StaticFramework/Sources/**"
         ),
     ]
 )
